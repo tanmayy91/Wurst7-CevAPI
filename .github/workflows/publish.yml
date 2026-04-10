@@ -11,7 +11,7 @@ on:
       upload_backups:
         description: "Upload to backups server"
         type: boolean
-        default: true
+        default: false
       publish_github:
         description: "Publish to GitHub"
         type: boolean
@@ -114,7 +114,7 @@ jobs:
     - name: Publish to GitHub
       if: ${{ inputs.publish_github }}
       env:
-        GITHUB_TOKEN: ${{ secrets.OLD_MCX_PUBLISH_TOKEN }}
+        GITHUB_TOKEN: ${{ github.token }}
       run: ./gradlew github --stacktrace --no-configuration-cache
 
     - name: Trigger website update
