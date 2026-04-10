@@ -16,7 +16,6 @@ import net.wurstclient.util.HackPerformanceOverlay;
 
 public final class IngameHUD implements GUIRenderListener
 {
-	private final WurstLogo wurstLogo = new WurstLogo();
 	private final HackListHUD hackList = new HackListHUD();
 	private final DurabilityHud durabilityHud =
 		new DurabilityHud(WurstClient.INSTANCE.getHax().durabilityHudHack);
@@ -44,7 +43,6 @@ public final class IngameHUD implements GUIRenderListener
 		
 		clickGui.updateColors();
 		
-		wurstLogo.render(context);
 		hackList.render(context, partialTicks);
 		tabGui.render(context, partialTicks);
 		durabilityHud.render(context);
